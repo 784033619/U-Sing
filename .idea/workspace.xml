@@ -2,63 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b414f036-63c5-44e2-8477-97fdb2f5b867" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/AlbumCommentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/AlbumMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/FollowMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/PlayRecordMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/SingerCollectionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/SingerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/SongCommentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/SongMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/SonglistMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/SonglistSongMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Dao/UserSettingMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/Album.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/AlbumComment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/AlbumCommentExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/AlbumExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/Follow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/FollowExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/PlayRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/PlayRecordExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/Singer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/SingerCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/SingerCollectionExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/SingerExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/Song.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/SongComment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/SongCommentExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/SongExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/Songlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/SonglistExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/SonglistSong.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/SonglistSongExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/UserExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/UserSetting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/QST/Using/Etitys/UserSettingExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/AlbumCommentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/AlbumMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/FollowMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/PlayRecordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/SingerCollectionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/SingerMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/SongCommentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/SongMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/SonglistMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/SonglistSongMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Mapper/UserSettingMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/generator.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,11 +15,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1522">
               <caret line="35" selection-start-line="35" selection-end-line="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -98,6 +52,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/generator.properties" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -129,7 +84,9 @@
     <option name="width" value="1292" />
     <option name="height" value="768" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -292,15 +249,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536067509638</updated>
-      <workItem from="1536067512646" duration="5033000" />
+      <workItem from="1536067512646" duration="5850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5033000" />
+    <option name="totallyTimeSpent" value="5850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
@@ -321,8 +279,8 @@
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.6595092" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32872504" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30484116" />
+      <window_info anchor="bottom" id="Terminal" weight="0.4423963" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30484116" />
       <window_info id="Web" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" />
@@ -359,6 +317,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1522">
           <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
