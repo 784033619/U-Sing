@@ -1,6 +1,7 @@
 package com.QST.Using.Util;
 
 public class Result {
+
     private Integer state;
     private String message;
     private Object Data;
