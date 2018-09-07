@@ -11,6 +11,7 @@
       classpath:Spring/applicationContext.xml,classpath:SpringMvc/springMVC.xml
     </param-value>
   </context-param>
+
   <filter>
     <filter-name>cors</filter-name>
     <filter-class>com.QST.Using.Util.CorsConfigurerAdapter.CrossFilter</filter-class>
@@ -19,6 +20,7 @@
     <filter-name>cors</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
