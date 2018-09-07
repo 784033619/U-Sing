@@ -1,11 +1,10 @@
 package com.QST.Using.Controller;
 
-import com.QST.Using.Etitys.User;
+import com.QST.Using.Util.VerifiCode.ucpaas.restDemo.CodeResult;
 import com.QST.Using.Util.VerifiCode.ucpaas.restDemo.VerifiCode;
+import net.sf.json.JSONObject;
 import org.junit.Test;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.servlet.http.HttpSession;
 import java.util.Random;
 
 import static org.junit.Assert.*;
@@ -22,7 +21,12 @@ public class UserControllerTest {
         String uid = "";
 
         param =  String.valueOf(new Random().nextInt(899999) + 100000);
-        String result=VerifiCode.InstantiationRestAPI().sendSms(sid,token,appid,templateid,param,mobile,uid);
-        System.out.println("Response content is: " + result);
+        String result= VerifiCode.InstantiationRestAPI().sendSms(sid,token,appid,templateid,param,mobile,uid);
+//        System.out.println(result);
+//        String result="{\"code\":\"000000\",\"count\":\"1\",\"create_date\":\"2018-09-07 10:04:10\",\"mobile\":\"18797531598\",\"msg\":\"OK\",\"smsid\":\"3da35415067a04b377a02ed4e58c60ef\",\"uid\":\"\"}";
+        JSONObject jsonObject=JSONObject.fromObject(result);
+        CodeResult codeResult =(CodeResult)JSONObject.toBean(jsonObject, CodeResult.class);
+        System.out.println(codeResult.getCode());
+
     }
 }
