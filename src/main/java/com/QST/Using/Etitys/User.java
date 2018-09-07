@@ -1,9 +1,7 @@
 package com.QST.Using.Etitys;
 
-import org.springframework.stereotype.Component;
-
 import java.util.Date;
-@Component(value = "user")
+
 public class User {
     private Integer id;
 
@@ -87,18 +85,5 @@ public class User {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", introduction='" + introduction + '\'' +
-                ", sex=" + sex +
-                ", birthday=" + birthday +
-                '}';
     }
 }
