@@ -11,6 +11,9 @@ public class StateAndMessage {
     public static final String LOGINFMESSAGE = "登录失败";
     public static final String LOGINSMESSAGE = "登录成功";
 
-    public static final String LOGINUMESSAGE = "用户名不正确";
-    public static final String LOGINPMESSAGE = "密码不正确";
+    public static final String VERIFICODEMESSAGE = "验证码获取失败";
+    public static final String VERIFICODEFAIL = "验证码正确";
+
+    public static final String USERNAMEREPEAT = "手机号已被注册";
+
 }
