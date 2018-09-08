@@ -43,19 +43,20 @@ public class UserController {
      * @return
      */
     @RequestMapping("/verifiCode")
-    public @ResponseBody Result getVerifiCode(@RequestBody User user, HttpSession session){
+    public Result getVerifiCode(@RequestBody User user, HttpSession session){
         String param = "";
         String uid = "";
         String mobile = user.getUsername();
-        if(!user.getUsername().isEmpty()){
-            param =  String.valueOf(new Random().nextInt(899999) + 100000);
-            String result=VerifiCode.InstantiationRestAPI().sendSms(SID,TOKEN,APPID,TEMPLATEID,param,mobile,uid);
-            CodeResult codeResult = CodeResult.getCodeResult(result);
-            if(!"000000".equals(codeResult.getCode())){
-                return new Result(StateAndMessage.FAIL,StateAndMessage.VERIFICODEMESSAGE,null);
-            }
-            session.setAttribute("verifiCode",param);
-        }
+        System.out.println(user.getUsername());
+//        if(!user.getUsername().isEmpty()){
+//            param =  String.valueOf(new Random().nextInt(899999) + 100000);
+//            String result=VerifiCode.InstantiationRestAPI().sendSms(SID,TOKEN,APPID,TEMPLATEID,param,mobile,uid);
+//            CodeResult codeResult = CodeResult.getCodeResult(result);
+//            if(!"000000".equals(codeResult.getCode())){
+//                return new Result(StateAndMessage.FAIL,StateAndMessage.VERIFICODEMESSAGE,null);
+//            }
+//            session.setAttribute("verifiCode",param);
+//        }
         return new Result(StateAndMessage.SUCCESS,null,null);
     }
 
