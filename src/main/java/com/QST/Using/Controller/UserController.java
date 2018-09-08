@@ -1,19 +1,25 @@
 package com.QST.Using.Controller;
 
 import com.QST.Using.Etitys.User;
+import com.QST.Using.Service.UserService;
 import com.QST.Using.Util.Result;
+import com.QST.Using.Util.StateAndMessage.StateAndMessage;
 import com.QST.Using.Util.VerifiCode.ucpaas.restDemo.VerifiCode;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Random;
 
 @Controller(value = "userController")
 @RequestMapping("/user")
 public class UserController {
+    @Resource
+    private UserService userService;
 
     @RequestMapping("/verifiCode")
     public @ResponseBody Result getVerifiCode(@RequestBody User user, HttpSession session){
@@ -35,5 +41,28 @@ public class UserController {
     public @ResponseBody Result register(@RequestBody User user){
 
         return null;
+    }
+
+    @RequestMapping("/login")
+    @ResponseBody
+    public Result login(User user,HttpSession session){
+        List<User> list = userService.login(user);
+        Result result = new Result();
+        if(list == null){
+            result.setState(StateAndMessage.FAIL);
+            result.setMessage(StateAndMessage.LOGINUMESSAGE);
+            return result;
+        }else{
+            User user1 = list.get(0);
+            if(!user.getPassword().equals(user1.getPassword())){
+                result.setState(StateAndMessage.FAIL);
+                result.setMessage(StateAndMessage.LOGINPMESSAGE);
+                return result;
+            }
+            session.setAttribute("user",user);
+            result.setState(StateAndMessage.SUCCESS);
+            result.setMessage(StateAndMessage.LOGINSMESSAGE);
+            return result;
+        }
     }
 }

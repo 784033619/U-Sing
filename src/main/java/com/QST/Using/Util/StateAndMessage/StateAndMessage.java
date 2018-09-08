@@ -10,4 +10,7 @@ public class StateAndMessage {
 
     public static final String LOGINFMESSAGE = "登录失败";
     public static final String LOGINSMESSAGE = "登录成功";
+
+    public static final String LOGINUMESSAGE = "用户名不正确";
+    public static final String LOGINPMESSAGE = "密码不正确";
 }
