@@ -4,7 +4,6 @@ import com.QST.Using.Etitys.User;
 import com.QST.Using.Service.UserService;
 import com.QST.Using.Util.Result;
 import com.QST.Using.Util.StateAndMessage.StateAndMessage;
-import com.QST.Using.Util.TestJson;
 import com.QST.Using.Util.VerifiCode.ucpaas.restDemo.CodeResult;
 import com.QST.Using.Util.VerifiCode.ucpaas.restDemo.VerifiCode;
 
@@ -44,23 +43,20 @@ public class UserController {
      * @return
      */
     @RequestMapping("/verifiCode")
-    @ResponseBody
     public Result getVerifiCode(@RequestBody User user, HttpSession session){
         String param = "";
         String uid = "";
         String mobile = user.getUsername();
-        System.out.println(user+"  "+mobile);
-        if(!mobile.isEmpty()){
-            param =  String.valueOf(new Random().nextInt(899999) + 100000);
-            String result=VerifiCode.InstantiationRestAPI().sendSms(SID,TOKEN,APPID,TEMPLATEID,param,mobile,uid);
-            System.out.println(result);
-            CodeResult codeResult = CodeResult.getCodeResult(result);
-            System.out.println(codeResult.getCode());
+        System.out.println(user.getUsername());
+//        if(!user.getUsername().isEmpty()){
+//            param =  String.valueOf(new Random().nextInt(899999) + 100000);
+//            String result=VerifiCode.InstantiationRestAPI().sendSms(SID,TOKEN,APPID,TEMPLATEID,param,mobile,uid);
+//            CodeResult codeResult = CodeResult.getCodeResult(result);
 //            if(!"000000".equals(codeResult.getCode())){
 //                return new Result(StateAndMessage.FAIL,StateAndMessage.VERIFICODEMESSAGE,null);
 //            }
-            session.setAttribute("verifiCode",param);
-        }
+//            session.setAttribute("verifiCode",param);
+//        }
         return new Result(StateAndMessage.SUCCESS,null,null);
     }
 
@@ -90,7 +86,7 @@ public class UserController {
      * @param user
      * @return
      */
-    @RequestMapping("/verifyMobile")
+    @RequestMapping("verifyMobile")
     public @ResponseBody Result verifyMobile(@RequestBody User user){
         User userCheck = userService.findUserByUsername(user);
         if(userCheck!=null){
@@ -98,9 +94,5 @@ public class UserController {
         }
         return new Result(StateAndMessage.SUCCESS,StateAndMessage.REGISTSMESSAGE,null);
     }
-    @RequestMapping("/test")
-    @ResponseBody
-    public Result test(@RequestBody TestJson testJson){
-        System.out.println(testJson.getName());
-        return new Result(StateAndMessage.SUCCESS,StateAndMessage.REGISTSMESSAGE,null);    }
+
 }

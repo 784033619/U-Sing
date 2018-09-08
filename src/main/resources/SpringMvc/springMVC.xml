@@ -16,23 +16,24 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!-- 扫描controller注解,多个包中间使用半角逗号分隔 -->
     <context:component-scan base-package="com.QST.Using.Controller"/>
-    <!--&lt;!&ndash;注解映射器 &ndash;&gt;-->
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
+    <!--注解映射器 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
     <!--&lt;!&ndash;注解适配器 &ndash;&gt;-->
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
     <!--</bean>-->
     <!--&lt;!&ndash;解决跨域请求&ndash;&gt;-->
     <!--<bean class="com.QST.Using.Util.CorsConfigurerAdapter.CorsConfigurerAdapter"></bean>-->
-    <mvc:annotation-driven  />
-    <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <!--json转换器-->
-                <ref bean="mappingJacksonHttpMessageConverter" />
-            </list>
-        </property>
-    </bean>
+
+    <!--<mvc:annotation-driven  />-->
+    <!--&lt;!&ndash; 启动Spring MVC的注解功能，完成请求和注解POJO的映射 &ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">-->
+        <!--<property name="messageConverters">-->
+            <!--<list>-->
+                <!--&lt;!&ndash;json转换器&ndash;&gt;-->
+                <!--<ref bean="mappingJacksonHttpMessageConverter" />-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
@@ -68,12 +69,4 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
             </list>
         </property>
     </bean>
-    <!--跨域配置-->
-    <!--<mvc:cors>-->
-        <!--<mvc:mapping path="/static/**"-->
-                     <!--allowed-origins="*"-->
-                     <!--allowed-methods="POST, GET, OPTIONS, DELETE, PUT"-->
-                     <!--allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"-->
-        <!--/>-->
-    <!--</mvc:cors>-->
 </beans>
