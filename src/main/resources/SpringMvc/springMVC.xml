@@ -68,10 +68,12 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
             </list>
         </property>
     </bean>
-    <!--<mvc:annotation-driven>-->
-        <!--<mvc:message-converters>-->
-            <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter"/>-->
-            <!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>-->
-        <!--</mvc:message-converters>-->
-    <!--</mvc:annotation-driven>-->
+    <!--跨域配置-->
+    <!--<mvc:cors>-->
+        <!--<mvc:mapping path="/static/**"-->
+                     <!--allowed-origins="*"-->
+                     <!--allowed-methods="POST, GET, OPTIONS, DELETE, PUT"-->
+                     <!--allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"-->
+        <!--/>-->
+    <!--</mvc:cors>-->
 </beans>
