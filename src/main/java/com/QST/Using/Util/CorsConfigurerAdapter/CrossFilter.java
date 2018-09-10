@@ -17,11 +17,10 @@ public class CrossFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String origin= servletRequest.getRemoteHost()+":"+servletRequest.getRemotePort();
         response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Headers", "Authentication");
         response.setHeader("Access-Control-Allow-Methods","POST,GET,OPTIONS,DELETE");
         response.setHeader("Access-Control-Max-Age","3600");
         response.setHeader("Access-Control-Allow-Credentials","true");
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type,XFILENAME,XFILECATEGORY,XFILESIZE");
+        response.setHeader("Access-Control-Allow-Headers", "Authentication,Content-Type,XFILENAME,XFILECATEGORY,XFILESIZE");
         if (request.getMethod().equals("OPTIONS")) {
             response.setStatus(HttpStatus.SC_OK);
             // hresp.setContentLength(0);
