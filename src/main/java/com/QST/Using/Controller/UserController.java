@@ -2,19 +2,24 @@ package com.QST.Using.Controller;
 
 import com.QST.Using.Etitys.User;
 import com.QST.Using.Service.UserService;
+import com.QST.Using.Util.Param.JsonToBean;
+import com.QST.Using.Util.Param.MapToJsonstr;
 import com.QST.Using.Util.Result;
 import com.QST.Using.Util.StateAndMessage.StateAndMessage;
+import com.QST.Using.Util.TestJson;
 import com.QST.Using.Util.VerifiCode.ucpaas.restDemo.CodeResult;
 import com.QST.Using.Util.VerifiCode.ucpaas.restDemo.VerifiCode;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 import java.util.Random;
+import net.sf.json.JSONObject;
 
 /**
  * 用户模块控制器
@@ -43,39 +48,50 @@ public class UserController {
      * @return
      */
     @RequestMapping("/verifiCode")
+    @ResponseBody
     public Result getVerifiCode(@RequestBody User user, HttpSession session){
         String param = "";
         String uid = "";
         String mobile = user.getUsername();
-        System.out.println(user.getUsername());
-//        if(!user.getUsername().isEmpty()){
-//            param =  String.valueOf(new Random().nextInt(899999) + 100000);
-//            String result=VerifiCode.InstantiationRestAPI().sendSms(SID,TOKEN,APPID,TEMPLATEID,param,mobile,uid);
-//            CodeResult codeResult = CodeResult.getCodeResult(result);
-//            if(!"000000".equals(codeResult.getCode())){
-//                return new Result(StateAndMessage.FAIL,StateAndMessage.VERIFICODEMESSAGE,null);
-//            }
-//            session.setAttribute("verifiCode",param);
-//        }
+        if(!mobile.isEmpty()){
+            param =  String.valueOf(new Random().nextInt(899999) + 100000);
+            String result=VerifiCode.InstantiationRestAPI().sendSms(SID,TOKEN,APPID,TEMPLATEID,param,mobile,uid);
+            CodeResult codeResult = CodeResult.getCodeResult(result);
+            if(!"000000".equals(codeResult.getCode())){
+                return new Result(StateAndMessage.FAIL,StateAndMessage.VERIFICODEMESSAGE,null);
+            }
+            System.out.println(param);
+            session.setAttribute("verifiCode",param);
+            System.out.println(session);
+        }
         return new Result(StateAndMessage.SUCCESS,null,null);
     }
 
     /**
      * 用户注册
-     * @param user
-     * @param code
+    // * @param user
+    // * @param code
      * @param session
      * @return
      */
     @RequestMapping("/register")
-    public @ResponseBody Result register(@RequestBody User user,@RequestBody String code,HttpSession session){
+    public @ResponseBody Result register(@RequestBody Map <String,Object> map, HttpSession session){
+        Map userM = (Map) map.get("user");
+        JsonToBean userB = new JsonToBean<User>();
+        User user = (User) userB.jsonToBean(MapToJsonstr.mapToJsonstr(userM),User.class);
+        String code = (String) map.get("code");
+        System.out.println(user);
+        System.out.println(code);
         if(user!=null){
-            //校验验证码
+//            校验验证码
+            System.out.println(session);
+            System.out.println(session.getAttribute("verifiCode"));
             if(code.equals(session.getAttribute("verifiCode"))){
-               int result = userService.savaUser(user);
-               if(result == 0){
-                   return new Result(StateAndMessage.FAIL,StateAndMessage.REGISTFMESSAGE,null);
-               }
+//               int result = userService.savaUser(user);
+//               if(result == 0){
+//                   return new Result(StateAndMessage.FAIL,StateAndMessage.REGISTFMESSAGE,null);
+//               }
+                System.out.println(1);
             }
         }
         return new Result(StateAndMessage.SUCCESS,StateAndMessage.REGISTSMESSAGE,null);

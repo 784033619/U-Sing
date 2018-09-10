@@ -1,9 +1,7 @@
 package com.QST.Using.Etitys;
 
-import org.springframework.stereotype.Component;
-
 import java.util.Date;
-@Component(value = "user")
+
 public class User {
     private Integer id;
 
