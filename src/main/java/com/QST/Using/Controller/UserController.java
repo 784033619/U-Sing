@@ -27,6 +27,7 @@ import net.sf.json.JSONObject;
  */
 
 @Controller(value = "userController")
+@CrossOrigin
 @RequestMapping("/user")
 public class UserController {
     //用户唯一ID
@@ -83,6 +84,7 @@ public class UserController {
         String code = (String) map.get("code");
         System.out.println(user);
         System.out.println(code);
+        System.out.println(session);
         if(user!=null){
 //            校验验证码
             System.out.println(session);
@@ -119,6 +121,7 @@ public class UserController {
      */
     @RequestMapping("login")
     public @ResponseBody Result login(@RequestBody User user,HttpSession session){
+        System.out.println(user);
         Result result = new Result();
         List<User> list = userService.login(user);
         if (list != null){
