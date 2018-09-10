@@ -124,7 +124,8 @@ public class UserController {
         System.out.println(user);
         Result result = new Result();
         List<User> list = userService.login(user);
-        if (list != null){
+        System.out.println(list);
+        if (!list.isEmpty()){
             User user1 = list.get(0);
             if(user.getPassword().equals(user1.getPassword())){
                 result.setState(StateAndMessage.SUCCESS);
