@@ -27,7 +27,7 @@ public class JsonReqClient extends AbsRestClient {
 			
 			String body = jsonObject.toJSONString();
 			
-			System.out.println("body = " + body);
+			//System.out.println("body = " + body);
 			
 			result = HttpClientUtil.postJson(url, body, null);
 			

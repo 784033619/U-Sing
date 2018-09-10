@@ -69,4 +69,14 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
             </list>
         </property>
     </bean>
+    <!--spring4.x跨域支持配置-->
+    <!--<mvc:cors>-->
+        <!--<mvc:mapping path="/**"-->
+                     <!--allowed-origins="*"-->
+                     <!--allow-credentials="true"-->
+                     <!--max-age="1800"-->
+                     <!--allowed-methods="GET,POST,OPTIONS"-->
+                     <!--allowed-headers="Allow"-->
+        <!--/>-->
+    <!--</mvc:cors>-->
 </beans>

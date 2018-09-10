@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.QST.Using.Dao.UserSettingMapper" >
+  <resultMap id="BaseResultMap" type="com.QST.Using.Etitys.UserSetting" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="letter" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="song_list_collect" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="video_collect" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="praise_get" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="new_fan" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="song_rank" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, letter, song_list_collect, video_collect, praise_get, new_fan, song_rank, user_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.QST.Using.Etitys.UserSettingExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_user_setting
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user_setting
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_user_setting
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.QST.Using.Etitys.UserSettingExample" >
+    delete from tb_user_setting
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.QST.Using.Etitys.UserSetting" >
+    insert into tb_user_setting (id, letter, song_list_collect, 
+      video_collect, praise_get, new_fan, 
+      song_rank, user_id)
+    values (#{id,jdbcType=INTEGER}, #{letter,jdbcType=INTEGER}, #{songListCollect,jdbcType=TINYINT}, 
+      #{videoCollect,jdbcType=TINYINT}, #{praiseGet,jdbcType=TINYINT}, #{newFan,jdbcType=TINYINT}, 
+      #{songRank,jdbcType=TINYINT}, #{userId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.QST.Using.Etitys.UserSetting" >
+    insert into tb_user_setting
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="letter != null" >
+        letter,
+      </if>
+      <if test="songListCollect != null" >
+        song_list_collect,
+      </if>
+      <if test="videoCollect != null" >
+        video_collect,
+      </if>
+      <if test="praiseGet != null" >
+        praise_get,
+      </if>
+      <if test="newFan != null" >
+        new_fan,
+      </if>
+      <if test="songRank != null" >
+        song_rank,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="letter != null" >
+        #{letter,jdbcType=INTEGER},
+      </if>
+      <if test="songListCollect != null" >
+        #{songListCollect,jdbcType=TINYINT},
+      </if>
+      <if test="videoCollect != null" >
+        #{videoCollect,jdbcType=TINYINT},
+      </if>
+      <if test="praiseGet != null" >
+        #{praiseGet,jdbcType=TINYINT},
+      </if>
+      <if test="newFan != null" >
+        #{newFan,jdbcType=TINYINT},
+      </if>
+      <if test="songRank != null" >
+        #{songRank,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.QST.Using.Etitys.UserSettingExample" resultType="java.lang.Integer" >
+    select count(*) from tb_user_setting
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_user_setting
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.letter != null" >
+        letter = #{record.letter,jdbcType=INTEGER},
+      </if>
+      <if test="record.songListCollect != null" >
+        song_list_collect = #{record.songListCollect,jdbcType=TINYINT},
+      </if>
+      <if test="record.videoCollect != null" >
+        video_collect = #{record.videoCollect,jdbcType=TINYINT},
+      </if>
+      <if test="record.praiseGet != null" >
+        praise_get = #{record.praiseGet,jdbcType=TINYINT},
+      </if>
+      <if test="record.newFan != null" >
+        new_fan = #{record.newFan,jdbcType=TINYINT},
+      </if>
+      <if test="record.songRank != null" >
+        song_rank = #{record.songRank,jdbcType=TINYINT},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_user_setting
+    set id = #{record.id,jdbcType=INTEGER},
+      letter = #{record.letter,jdbcType=INTEGER},
+      song_list_collect = #{record.songListCollect,jdbcType=TINYINT},
+      video_collect = #{record.videoCollect,jdbcType=TINYINT},
+      praise_get = #{record.praiseGet,jdbcType=TINYINT},
+      new_fan = #{record.newFan,jdbcType=TINYINT},
+      song_rank = #{record.songRank,jdbcType=TINYINT},
+      user_id = #{record.userId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.QST.Using.Etitys.UserSetting" >
+    update tb_user_setting
+    <set >
+      <if test="letter != null" >
+        letter = #{letter,jdbcType=INTEGER},
+      </if>
+      <if test="songListCollect != null" >
+        song_list_collect = #{songListCollect,jdbcType=TINYINT},
+      </if>
+      <if test="videoCollect != null" >
+        video_collect = #{videoCollect,jdbcType=TINYINT},
+      </if>
+      <if test="praiseGet != null" >
+        praise_get = #{praiseGet,jdbcType=TINYINT},
+      </if>
+      <if test="newFan != null" >
+        new_fan = #{newFan,jdbcType=TINYINT},
+      </if>
+      <if test="songRank != null" >
+        song_rank = #{songRank,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.QST.Using.Etitys.UserSetting" >
+    update tb_user_setting
+    set letter = #{letter,jdbcType=INTEGER},
+      song_list_collect = #{songListCollect,jdbcType=TINYINT},
+      video_collect = #{videoCollect,jdbcType=TINYINT},
+      praise_get = #{praiseGet,jdbcType=TINYINT},
+      new_fan = #{newFan,jdbcType=TINYINT},
+      song_rank = #{songRank,jdbcType=TINYINT},
+      user_id = #{userId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
