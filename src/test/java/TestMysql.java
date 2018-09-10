@@ -7,9 +7,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestMysql {
     @Test
     public void test(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("Spring/applicationContext.xml");
-        UserMapper userMapper = (UserMapper) context.getBean("userMapper");
-        User user = userMapper.selectByPrimaryKey(1);
-        System.out.println(user);
+//        ApplicationContext context = new ClassPathXmlApplicationContext("Spring/applicationContext.xml");
+//        UserMapper userMapper = (UserMapper) context.getBean("userMapper");
+//        User user = userMapper.selectByPrimaryKey(1);
+//        System.out.println(user);
     }
 }
