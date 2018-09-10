@@ -7,6 +7,7 @@ import com.QST.Using.Service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service(value = "userService")
 public class UserServiceImpl implements UserService {
@@ -23,5 +24,14 @@ public class UserServiceImpl implements UserService {
         UserExample.Criteria  criteria = userExample.createCriteria();
         criteria.andUsernameEqualTo(user.getUsername());
         return (User) userMapper.selectByExample(userExample);
+    }
+
+    @Override
+    public List<User> login(User user) {
+        UserExample userExample = new UserExample();
+        UserExample.Criteria criteria = userExample.createCriteria();
+        criteria.andUsernameEqualTo(user.getUsername());
+        List<User> list = userMapper.selectByExample(userExample);
+        return list;
     }
 }

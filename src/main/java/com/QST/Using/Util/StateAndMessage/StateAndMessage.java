@@ -16,4 +16,7 @@ public class StateAndMessage {
 
     public static final String USERNAMEREPEAT = "手机号已被注册";
 
+    public static final String LOGINFUSERNAME = "用户名不正确";
+    public static final String LOGINFPASSWORD = "密码不正确";
+
 }

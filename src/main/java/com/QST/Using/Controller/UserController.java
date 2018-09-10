@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import net.sf.json.JSONObject;
@@ -111,4 +112,23 @@ public class UserController {
         return new Result(StateAndMessage.SUCCESS,StateAndMessage.REGISTSMESSAGE,null);
     }
 
+    @RequestMapping("login")
+    public @ResponseBody Result login(@RequestBody User user){
+        Result result = new Result();
+        List<User> list = userService.login(user);
+        if (list != null){
+            User user1 = list.get(0);
+            if(user.getPassword().equals(user1.getPassword())){
+                result.setState(StateAndMessage.SUCCESS);
+                result.setMessage(StateAndMessage.LOGINSMESSAGE);
+            }else{
+                result.setMessage(StateAndMessage.LOGINFUSERNAME);
+                result.setState(StateAndMessage.FAIL);
+            }
+        }else{
+            result.setState(StateAndMessage.FAIL);
+            result.setMessage(StateAndMessage.LOGINFUSERNAME);
+        }
+        return result;
+    }
 }
