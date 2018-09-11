@@ -202,7 +202,12 @@
       <artifactId>ezmorph</artifactId>
       <version>1.0.6</version>
     </dependency>
-
+<!--mybatis分页工具-->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>4.1.4</version>
+    </dependency>
   </dependencies>
 
   <build>

@@ -7,4 +7,11 @@
     <settings>
         <setting name="cacheEnabled" value="true"/>
     </settings>
+    <!-- 配置分页插件 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <!-- 指定使用的数据库是什么 -->
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
 </configuration>

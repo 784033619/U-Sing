@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.QST.Using.Etitys.Songlist">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="tags" javaType="java.lang.String" jdbcType="INTEGER" />
       <arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="song_list_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
