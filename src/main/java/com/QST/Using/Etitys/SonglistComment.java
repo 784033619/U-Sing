@@ -2,32 +2,32 @@ package com.QST.Using.Etitys;
 
 import java.util.Date;
 
-public class SongComment {
+public class SonglistComment {
     private Integer id;
-
-    private Integer songId;
 
     private Integer userId;
 
-    private Integer songCommentId;
+    private Integer songListId;
 
     private Date createTime;
 
     private Integer praiseTimes;
 
+    private Integer replayComment;
+
     private String content;
 
-    public SongComment(Integer id, Integer songId, Integer userId, Integer songCommentId, Date createTime, Integer praiseTimes, String content) {
+    public SonglistComment(Integer id, Integer userId, Integer songListId, Date createTime, Integer praiseTimes, Integer replayComment, String content) {
         this.id = id;
-        this.songId = songId;
         this.userId = userId;
-        this.songCommentId = songCommentId;
+        this.songListId = songListId;
         this.createTime = createTime;
         this.praiseTimes = praiseTimes;
+        this.replayComment = replayComment;
         this.content = content;
     }
 
-    public SongComment() {
+    public SonglistComment() {
         super();
     }
 
@@ -39,14 +39,6 @@ public class SongComment {
         this.id = id;
     }
 
-    public Integer getSongId() {
-        return songId;
-    }
-
-    public void setSongId(Integer songId) {
-        this.songId = songId;
-    }
-
     public Integer getUserId() {
         return userId;
     }
@@ -55,12 +47,12 @@ public class SongComment {
         this.userId = userId;
     }
 
-    public Integer getSongCommentId() {
-        return songCommentId;
+    public Integer getSongListId() {
+        return songListId;
     }
 
-    public void setSongCommentId(Integer songCommentId) {
-        this.songCommentId = songCommentId;
+    public void setSongListId(Integer songListId) {
+        this.songListId = songListId;
     }
 
     public Date getCreateTime() {
@@ -77,6 +69,14 @@ public class SongComment {
 
     public void setPraiseTimes(Integer praiseTimes) {
         this.praiseTimes = praiseTimes;
+    }
+
+    public Integer getReplayComment() {
+        return replayComment;
+    }
+
+    public void setReplayComment(Integer replayComment) {
+        this.replayComment = replayComment;
     }
 
     public String getContent() {

@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class SongCommentExample {
+public class SonglistCommentExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public SongCommentExample() {
+    public SonglistCommentExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -165,66 +165,6 @@ public class SongCommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andSongIdIsNull() {
-            addCriterion("song_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdIsNotNull() {
-            addCriterion("song_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdEqualTo(Integer value) {
-            addCriterion("song_id =", value, "songId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdNotEqualTo(Integer value) {
-            addCriterion("song_id <>", value, "songId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdGreaterThan(Integer value) {
-            addCriterion("song_id >", value, "songId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("song_id >=", value, "songId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdLessThan(Integer value) {
-            addCriterion("song_id <", value, "songId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdLessThanOrEqualTo(Integer value) {
-            addCriterion("song_id <=", value, "songId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdIn(List<Integer> values) {
-            addCriterion("song_id in", values, "songId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdNotIn(List<Integer> values) {
-            addCriterion("song_id not in", values, "songId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdBetween(Integer value1, Integer value2) {
-            addCriterion("song_id between", value1, value2, "songId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSongIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("song_id not between", value1, value2, "songId");
-            return (Criteria) this;
-        }
-
         public Criteria andUserIdIsNull() {
             addCriterion("user_id is null");
             return (Criteria) this;
@@ -285,63 +225,63 @@ public class SongCommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdIsNull() {
-            addCriterion("song_comment_id is null");
+        public Criteria andSongListIdIsNull() {
+            addCriterion("song_list_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdIsNotNull() {
-            addCriterion("song_comment_id is not null");
+        public Criteria andSongListIdIsNotNull() {
+            addCriterion("song_list_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdEqualTo(Integer value) {
-            addCriterion("song_comment_id =", value, "songCommentId");
+        public Criteria andSongListIdEqualTo(Integer value) {
+            addCriterion("song_list_id =", value, "songListId");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdNotEqualTo(Integer value) {
-            addCriterion("song_comment_id <>", value, "songCommentId");
+        public Criteria andSongListIdNotEqualTo(Integer value) {
+            addCriterion("song_list_id <>", value, "songListId");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdGreaterThan(Integer value) {
-            addCriterion("song_comment_id >", value, "songCommentId");
+        public Criteria andSongListIdGreaterThan(Integer value) {
+            addCriterion("song_list_id >", value, "songListId");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("song_comment_id >=", value, "songCommentId");
+        public Criteria andSongListIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("song_list_id >=", value, "songListId");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdLessThan(Integer value) {
-            addCriterion("song_comment_id <", value, "songCommentId");
+        public Criteria andSongListIdLessThan(Integer value) {
+            addCriterion("song_list_id <", value, "songListId");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdLessThanOrEqualTo(Integer value) {
-            addCriterion("song_comment_id <=", value, "songCommentId");
+        public Criteria andSongListIdLessThanOrEqualTo(Integer value) {
+            addCriterion("song_list_id <=", value, "songListId");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdIn(List<Integer> values) {
-            addCriterion("song_comment_id in", values, "songCommentId");
+        public Criteria andSongListIdIn(List<Integer> values) {
+            addCriterion("song_list_id in", values, "songListId");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdNotIn(List<Integer> values) {
-            addCriterion("song_comment_id not in", values, "songCommentId");
+        public Criteria andSongListIdNotIn(List<Integer> values) {
+            addCriterion("song_list_id not in", values, "songListId");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdBetween(Integer value1, Integer value2) {
-            addCriterion("song_comment_id between", value1, value2, "songCommentId");
+        public Criteria andSongListIdBetween(Integer value1, Integer value2) {
+            addCriterion("song_list_id between", value1, value2, "songListId");
             return (Criteria) this;
         }
 
-        public Criteria andSongCommentIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("song_comment_id not between", value1, value2, "songCommentId");
+        public Criteria andSongListIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("song_list_id not between", value1, value2, "songListId");
             return (Criteria) this;
         }
 
@@ -462,6 +402,66 @@ public class SongCommentExample {
 
         public Criteria andPraiseTimesNotBetween(Integer value1, Integer value2) {
             addCriterion("praise_times not between", value1, value2, "praiseTimes");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentIsNull() {
+            addCriterion("replay_comment is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentIsNotNull() {
+            addCriterion("replay_comment is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentEqualTo(Integer value) {
+            addCriterion("replay_comment =", value, "replayComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentNotEqualTo(Integer value) {
+            addCriterion("replay_comment <>", value, "replayComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentGreaterThan(Integer value) {
+            addCriterion("replay_comment >", value, "replayComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentGreaterThanOrEqualTo(Integer value) {
+            addCriterion("replay_comment >=", value, "replayComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentLessThan(Integer value) {
+            addCriterion("replay_comment <", value, "replayComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentLessThanOrEqualTo(Integer value) {
+            addCriterion("replay_comment <=", value, "replayComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentIn(List<Integer> values) {
+            addCriterion("replay_comment in", values, "replayComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentNotIn(List<Integer> values) {
+            addCriterion("replay_comment not in", values, "replayComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentBetween(Integer value1, Integer value2) {
+            addCriterion("replay_comment between", value1, value2, "replayComment");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplayCommentNotBetween(Integer value1, Integer value2) {
+            addCriterion("replay_comment not between", value1, value2, "replayComment");
             return (Criteria) this;
         }
 

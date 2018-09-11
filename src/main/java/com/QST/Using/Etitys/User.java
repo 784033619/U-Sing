@@ -86,17 +86,4 @@ public class User {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", introduction='" + introduction + '\'' +
-                ", sex=" + sex +
-                ", birthday=" + birthday +
-                '}';
-    }
 }

@@ -6,12 +6,9 @@ import com.QST.Using.Util.Param.JsonToBean;
 import com.QST.Using.Util.Param.MapToJsonstr;
 import com.QST.Using.Util.Result;
 import com.QST.Using.Util.StateAndMessage.StateAndMessage;
-import com.QST.Using.Util.TestJson;
 import com.QST.Using.Util.VerifiCode.ucpaas.restDemo.CodeResult;
 import com.QST.Using.Util.VerifiCode.ucpaas.restDemo.VerifiCode;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +17,6 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import net.sf.json.JSONObject;
 
 /**
  * 用户模块控制器
@@ -89,13 +85,13 @@ public class UserController {
 //            校验验证码
             System.out.println(session);
             System.out.println(session.getAttribute("verifiCode"));
-            if(code.equals(session.getAttribute("verifiCode"))){
-//               int result = userService.savaUser(user);
+//            if(code.equals(session.getAttribute("verifiCode"))){
+               int result = userService.savaUser(user);
 //               if(result == 0){
 //                   return new Result(StateAndMessage.FAIL,StateAndMessage.REGISTFMESSAGE,null);
 //               }
                 System.out.println(1);
-            }
+ //           }
         }
         return new Result(StateAndMessage.SUCCESS,StateAndMessage.REGISTSMESSAGE,null);
     }
@@ -107,8 +103,8 @@ public class UserController {
      */
     @RequestMapping("verifyMobile")
     public @ResponseBody Result verifyMobile(@RequestBody User user){
-        User userCheck = userService.findUserByUsername(user);
-        if(userCheck!=null){
+        List<User> users = userService.getUserByUsername(user);
+        if(users.isEmpty()){
             return new Result(StateAndMessage.FAIL,StateAndMessage.USERNAMEREPEAT,null);
         }
         return new Result(StateAndMessage.SUCCESS,StateAndMessage.REGISTSMESSAGE,null);

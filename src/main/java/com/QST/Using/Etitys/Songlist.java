@@ -5,26 +5,29 @@ import java.util.Date;
 public class Songlist {
     private Integer id;
 
-    private Integer userId;
+    private String tags;
 
-    private Integer songListId;
+    private String introduction;
+
+    private Integer playTimes;
+
+    private String title;
+
+    private String pic;
 
     private Date createTime;
 
-    private Integer praiseTimes;
+    private Date updateTime;
 
-    private Integer replayComment;
-
-    private String content;
-
-    public Songlist(Integer id, Integer userId, Integer songListId, Date createTime, Integer praiseTimes, Integer replayComment, String content) {
+    public Songlist(Integer id, String tags, String introduction, Integer playTimes, String title, String pic, Date createTime, Date updateTime) {
         this.id = id;
-        this.userId = userId;
-        this.songListId = songListId;
+        this.tags = tags;
+        this.introduction = introduction;
+        this.playTimes = playTimes;
+        this.title = title;
+        this.pic = pic;
         this.createTime = createTime;
-        this.praiseTimes = praiseTimes;
-        this.replayComment = replayComment;
-        this.content = content;
+        this.updateTime = updateTime;
     }
 
     public Songlist() {
@@ -39,20 +42,44 @@ public class Songlist {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public String getTags() {
+        return tags;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setTags(String tags) {
+        this.tags = tags == null ? null : tags.trim();
     }
 
-    public Integer getSongListId() {
-        return songListId;
+    public String getIntroduction() {
+        return introduction;
     }
 
-    public void setSongListId(Integer songListId) {
-        this.songListId = songListId;
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction == null ? null : introduction.trim();
+    }
+
+    public Integer getPlayTimes() {
+        return playTimes;
+    }
+
+    public void setPlayTimes(Integer playTimes) {
+        this.playTimes = playTimes;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic == null ? null : pic.trim();
     }
 
     public Date getCreateTime() {
@@ -63,27 +90,11 @@ public class Songlist {
         this.createTime = createTime;
     }
 
-    public Integer getPraiseTimes() {
-        return praiseTimes;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setPraiseTimes(Integer praiseTimes) {
-        this.praiseTimes = praiseTimes;
-    }
-
-    public Integer getReplayComment() {
-        return replayComment;
-    }
-
-    public void setReplayComment(Integer replayComment) {
-        this.replayComment = replayComment;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
