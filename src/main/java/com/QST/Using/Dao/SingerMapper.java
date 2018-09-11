@@ -4,7 +4,9 @@ import com.QST.Using.Etitys.Singer;
 import com.QST.Using.Etitys.SingerExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository(value = "singerMapper")
 public interface SingerMapper {
     int countByExample(SingerExample example);
 

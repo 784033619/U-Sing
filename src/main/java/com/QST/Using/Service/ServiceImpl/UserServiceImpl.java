@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findUserByUsername(User user) {
+    public List<User> getUserByUsername(User user) {
         UserExample userExample = new UserExample();
         UserExample.Criteria  criteria = userExample.createCriteria();
         criteria.andUsernameEqualTo(user.getUsername());

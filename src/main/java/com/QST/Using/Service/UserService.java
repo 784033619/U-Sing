@@ -8,7 +8,7 @@ public interface UserService {
 
     int savaUser(User user);
 
-    List<User> findUserByUsername(User user);
+    List<User> getUserByUsername(User user);
 
     public List<User> login(User user);
 }
