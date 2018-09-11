@@ -15,6 +15,7 @@ import java.util.List;
 @Controller(value = "singerContraller")
 @CrossOrigin
 @RequestMapping(value = "singer")
+@ResponseBody
 public class SingerController {
     @Resource(name = "singerService")
     private SingerService singerService;
@@ -24,7 +25,6 @@ public class SingerController {
      * @return
      */
     @RequestMapping(value = "getSingerList")
-    @ResponseBody
     public Result getSingerList(){
         List<Singer> singers = singerService.getSingerList();
         if(singers.isEmpty()){

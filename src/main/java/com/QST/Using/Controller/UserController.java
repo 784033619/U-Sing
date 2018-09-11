@@ -25,6 +25,7 @@ import java.util.Random;
 @Controller(value = "userController")
 @CrossOrigin
 @RequestMapping("/user")
+@ResponseBody
 public class UserController {
     //用户唯一ID
     private final String  SID = "75a45e2aede387ce3560d937f2f38bb1";
@@ -46,7 +47,6 @@ public class UserController {
      * @return
      */
     @RequestMapping("/verifiCode")
-    @ResponseBody
     public Result getVerifiCode(@RequestBody User user, HttpSession session){
         String param = "";
         String uid = "";
@@ -73,7 +73,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("/register")
-    public @ResponseBody Result register(@RequestBody Map <String,Object> map, HttpSession session){
+    public Result register(@RequestBody Map <String,Object> map, HttpSession session){
         Map userM = (Map) map.get("user");
         JsonToBean userB = new JsonToBean<User>();
         User user = (User) userB.jsonToBean(MapToJsonstr.mapToJsonstr(userM),User.class);
@@ -102,7 +102,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("verifyMobile")
-    public @ResponseBody Result verifyMobile(@RequestBody User user){
+    public Result verifyMobile(@RequestBody User user){
         List<User> users = userService.getUserByUsername(user);
         if(users.isEmpty()){
             return new Result(StateAndMessage.FAIL,StateAndMessage.USERNAMEREPEAT,null);
@@ -116,7 +116,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("login")
-    public @ResponseBody Result login(@RequestBody User user,HttpSession session){
+    public  Result login(@RequestBody User user,HttpSession session){
         System.out.println(user);
         Result result = new Result();
         List<User> list = userService.login(user);
@@ -137,4 +137,6 @@ public class UserController {
         }
         return result;
     }
+
+
 }

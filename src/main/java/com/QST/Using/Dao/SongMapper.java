@@ -4,7 +4,9 @@ import com.QST.Using.Etitys.Song;
 import com.QST.Using.Etitys.SongExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository(value = "songMapper")
 public interface SongMapper {
     int countByExample(SongExample example);
 
