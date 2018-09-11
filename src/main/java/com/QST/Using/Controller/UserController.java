@@ -103,8 +103,8 @@ public class UserController {
      */
     @RequestMapping("verifyMobile")
     public @ResponseBody Result verifyMobile(@RequestBody User user){
-        User userCheck = userService.findUserByUsername(user);
-        if(userCheck!=null){
+        List<User> users = userService.findUserByUsername(user);
+        if(users.isEmpty()){
             return new Result(StateAndMessage.FAIL,StateAndMessage.USERNAMEREPEAT,null);
         }
         return new Result(StateAndMessage.SUCCESS,StateAndMessage.REGISTSMESSAGE,null);
