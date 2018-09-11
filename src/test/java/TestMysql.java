@@ -23,7 +23,7 @@ public class TestMysql {
         PageHelper.startPage(1,1);
 //        SingerExample singerExample = new SingerExample();
         List<Singer> list = singerMapper.selectByExample(null);
-//        PageInfo<Singer> pageInfo = new PageInfo<>(list);
-        System.out.println(list.size());
+        PageInfo<Singer> pageInfo = new PageInfo<>(list);
+        System.out.println(pageInfo.getTotal());
     }
 }
