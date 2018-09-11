@@ -22,7 +22,6 @@ public class SongController {
     @RequestMapping(value = "getSingRankList")
     public Result getSingRankList(){
         List<Song> songs = songService.getSongRankList();
-        System.out.println(songs.size());
         if(songs.isEmpty()){
             return new Result(StateAndMessage.FAIL,null,null);
         }

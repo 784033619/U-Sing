@@ -4,6 +4,7 @@ import com.QST.Using.Dao.SingerMapper;
 import com.QST.Using.Etitys.Singer;
 import com.QST.Using.Service.SingerService;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

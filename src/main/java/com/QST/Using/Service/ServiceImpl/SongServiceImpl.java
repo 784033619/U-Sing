@@ -5,6 +5,7 @@ import com.QST.Using.Etitys.Song;
 import com.QST.Using.Etitys.SongExample;
 import com.QST.Using.Service.SongService;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -20,6 +21,7 @@ public class SongServiceImpl implements SongService {
         songExample.setOrderByClause("play_times desc");
         PageHelper.startPage(1,7);
         List<Song> songs = songMapper.selectByExample(songExample);
+        PageInfo<Song> pageInfo = new PageInfo<Song>(songs);
         return songs;
     }
 }
