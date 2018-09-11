@@ -1,7 +1,5 @@
 package com.QST.Using.Etitys;
 
-import org.springframework.stereotype.Component;
-
 public class Singer {
     private Integer id;
 

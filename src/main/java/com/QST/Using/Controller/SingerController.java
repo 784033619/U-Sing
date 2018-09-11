@@ -27,10 +27,9 @@ public class SingerController {
     @ResponseBody
     public Result getSingerList(){
         List<Singer> singers = singerService.getSingerList();
-        System.out.println(singers);
         if(singers.isEmpty()){
             return  new Result(StateAndMessage.FAIL,null,null);
         }
-        return new Result(StateAndMessage.SUCCESS,null,null);
+        return new Result(StateAndMessage.SUCCESS,null,singers);
     }
 }

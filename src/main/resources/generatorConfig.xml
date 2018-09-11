@@ -79,7 +79,7 @@
         <table tableName="tb_song_comment" domainObjectName="SongComment"></table>
         <table tableName="tb_list_collection" domainObjectName="ListCollection"></table>
         <table tableName="tb_songlist" domainObjectName="Songlist"></table>
-        <table tableName="tb_songlist_comment" domainObjectName="Songlist"></table>
+        <table tableName="tb_songlist_comment" domainObjectName="SonglistComment"></table>
         <table tableName="tb_songlist_song" domainObjectName="SonglistSong"></table>
         <table tableName="tb_user" domainObjectName="User"></table>
         <table tableName="tb_user_setting" domainObjectName="UserSetting"></table>

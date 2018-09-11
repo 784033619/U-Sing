@@ -2,7 +2,6 @@ package com.QST.Using.Service.ServiceImpl;
 
 import com.QST.Using.Dao.SingerMapper;
 import com.QST.Using.Etitys.Singer;
-import com.QST.Using.Etitys.SingerExample;
 import com.QST.Using.Service.SingerService;
 import org.springframework.stereotype.Service;
 
