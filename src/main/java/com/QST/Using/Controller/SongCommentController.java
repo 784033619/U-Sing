@@ -1,16 +1,16 @@
 package com.QST.Using.Controller;
 
-        import com.QST.Using.Etitys.SongComment;
-        import com.QST.Using.Service.SongCommentService;
-        import com.QST.Using.Util.Result;
-        import com.QST.Using.Util.StateAndMessage.StateAndMessage;
-        import org.springframework.stereotype.Controller;
-        import org.springframework.web.bind.annotation.CrossOrigin;
-        import org.springframework.web.bind.annotation.RequestMapping;
-        import org.springframework.web.bind.annotation.ResponseBody;
+import com.QST.Using.Etitys.SongComment;
+import com.QST.Using.Service.SongCommentService;
+import com.QST.Using.Util.Result;
+import com.QST.Using.Util.StateAndMessage.StateAndMessage;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-        import javax.annotation.Resource;
-        import java.util.List;
+import javax.annotation.Resource;
+import java.util.List;
 
 @Controller(value = "songCommentController")
 @CrossOrigin
