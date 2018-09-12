@@ -11,4 +11,10 @@ public interface UserService {
     List<User> getUserByUsername(User user);
 
     public List<User> login(User user);
+
+    User getPersonalInfo(Integer id);
+
+    int updatePersonal(User user);
+
+    void setUserHead(String username, String oldUrl);
 }

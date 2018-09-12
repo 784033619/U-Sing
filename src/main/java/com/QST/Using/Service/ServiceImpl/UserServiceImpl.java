@@ -34,4 +34,20 @@ public class UserServiceImpl implements UserService {
         List<User> list = userMapper.selectByExample(userExample);
         return list;
     }
+
+    @Override
+    public User getPersonalInfo(Integer id) {
+        return userMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int updatePersonal(User user) {
+        int rows = userMapper.updateByPrimaryKeySelective(user);
+        return rows;
+    }
+
+    @Override
+    public void setUserHead(String username, String oldUrl) {
+
+    }
 }
