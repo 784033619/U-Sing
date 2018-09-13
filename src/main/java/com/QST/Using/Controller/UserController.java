@@ -190,8 +190,7 @@ public class UserController {
             data.put("url", oldUrl);
             return new Result(StateAndMessage.SUCCESS,StateAndMessage.UPLOADSUCCESS,data);
         }
-        String path = "";
-        userFileService.addUserFile(user.getUsername(), filename, fileMd5);
+        String path = session.getServletContext().getRealPath("/headImgs")+filename;
         // 文件名 username + datetime + filename
         File newFile = new File(path);
         logger.info("文件已保存至： "+path);
