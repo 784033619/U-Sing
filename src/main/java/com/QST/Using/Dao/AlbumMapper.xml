@@ -6,6 +6,8 @@
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="publish_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="singer_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="pic" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MD5file" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -67,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, publish_date, singer_id
+    id, publish_date, singer_id, pic, MD5file
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.QST.Using.Etitys.AlbumExample" >
     select
@@ -100,10 +102,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.QST.Using.Etitys.Album" >
-    insert into tb_album (id, publish_date, singer_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{publishDate,jdbcType=TIMESTAMP}, #{singerId,jdbcType=INTEGER}
-      )
+    insert into tb_album (id, publish_date, singer_id, 
+      pic, MD5file)
+    values (#{id,jdbcType=INTEGER}, #{publishDate,jdbcType=TIMESTAMP}, #{singerId,jdbcType=INTEGER}, 
+      #{pic,jdbcType=VARCHAR}, #{md5file,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.QST.Using.Etitys.Album" >
     insert into tb_album
@@ -117,6 +119,12 @@
       <if test="singerId != null" >
         singer_id,
       </if>
+      <if test="pic != null" >
+        pic,
+      </if>
+      <if test="md5file != null" >
+        MD5file,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -127,6 +135,12 @@
       </if>
       <if test="singerId != null" >
         #{singerId,jdbcType=INTEGER},
+      </if>
+      <if test="pic != null" >
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="md5file != null" >
+        #{md5file,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -148,6 +162,12 @@
       <if test="record.singerId != null" >
         singer_id = #{record.singerId,jdbcType=INTEGER},
       </if>
+      <if test="record.pic != null" >
+        pic = #{record.pic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.md5file != null" >
+        MD5file = #{record.md5file,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -157,7 +177,9 @@
     update tb_album
     set id = #{record.id,jdbcType=INTEGER},
       publish_date = #{record.publishDate,jdbcType=TIMESTAMP},
-      singer_id = #{record.singerId,jdbcType=INTEGER}
+      singer_id = #{record.singerId,jdbcType=INTEGER},
+      pic = #{record.pic,jdbcType=VARCHAR},
+      MD5file = #{record.md5file,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -171,13 +193,21 @@
       <if test="singerId != null" >
         singer_id = #{singerId,jdbcType=INTEGER},
       </if>
+      <if test="pic != null" >
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="md5file != null" >
+        MD5file = #{md5file,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.QST.Using.Etitys.Album" >
     update tb_album
     set publish_date = #{publishDate,jdbcType=TIMESTAMP},
-      singer_id = #{singerId,jdbcType=INTEGER}
+      singer_id = #{singerId,jdbcType=INTEGER},
+      pic = #{pic,jdbcType=VARCHAR},
+      MD5file = #{md5file,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

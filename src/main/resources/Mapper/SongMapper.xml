@@ -10,6 +10,7 @@
       <arg column="lrc" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="album_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="play_times" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="MD5file" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -71,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, title, length, pic, lrc, album_id, play_times
+    id, title, length, pic, lrc, album_id, play_times, MD5file
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.QST.Using.Etitys.SongExample" >
     select
@@ -106,10 +107,10 @@
   <insert id="insert" parameterType="com.QST.Using.Etitys.Song" >
     insert into tb_song (id, title, length, 
       pic, lrc, album_id, 
-      play_times)
+      play_times, MD5file)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{length,jdbcType=INTEGER}, 
       #{pic,jdbcType=VARCHAR}, #{lrc,jdbcType=VARCHAR}, #{albumId,jdbcType=INTEGER}, 
-      #{playTimes,jdbcType=INTEGER})
+      #{playTimes,jdbcType=INTEGER}, #{md5file,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.QST.Using.Etitys.Song" >
     insert into tb_song
@@ -135,6 +136,9 @@
       <if test="playTimes != null" >
         play_times,
       </if>
+      <if test="md5file != null" >
+        MD5file,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -157,6 +161,9 @@
       </if>
       <if test="playTimes != null" >
         #{playTimes,jdbcType=INTEGER},
+      </if>
+      <if test="md5file != null" >
+        #{md5file,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -190,6 +197,9 @@
       <if test="record.playTimes != null" >
         play_times = #{record.playTimes,jdbcType=INTEGER},
       </if>
+      <if test="record.md5file != null" >
+        MD5file = #{record.md5file,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -203,7 +213,8 @@
       pic = #{record.pic,jdbcType=VARCHAR},
       lrc = #{record.lrc,jdbcType=VARCHAR},
       album_id = #{record.albumId,jdbcType=INTEGER},
-      play_times = #{record.playTimes,jdbcType=INTEGER}
+      play_times = #{record.playTimes,jdbcType=INTEGER},
+      MD5file = #{record.md5file,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -229,6 +240,9 @@
       <if test="playTimes != null" >
         play_times = #{playTimes,jdbcType=INTEGER},
       </if>
+      <if test="md5file != null" >
+        MD5file = #{md5file,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -239,7 +253,8 @@
       pic = #{pic,jdbcType=VARCHAR},
       lrc = #{lrc,jdbcType=VARCHAR},
       album_id = #{albumId,jdbcType=INTEGER},
-      play_times = #{playTimes,jdbcType=INTEGER}
+      play_times = #{playTimes,jdbcType=INTEGER},
+      MD5file = #{md5file,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

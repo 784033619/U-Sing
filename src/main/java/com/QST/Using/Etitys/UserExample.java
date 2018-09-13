@@ -1,9 +1,11 @@
 package com.QST.Using.Etitys;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+@Component(value = "userExample")
 public class UserExample {
     protected String orderByClause;
 
@@ -562,6 +564,146 @@ public class UserExample {
 
         public Criteria andBirthdayNotBetween(Date value1, Date value2) {
             addCriterion("birthday not between", value1, value2, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgIsNull() {
+            addCriterion("headImg is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgIsNotNull() {
+            addCriterion("headImg is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgEqualTo(String value) {
+            addCriterion("headImg =", value, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgNotEqualTo(String value) {
+            addCriterion("headImg <>", value, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgGreaterThan(String value) {
+            addCriterion("headImg >", value, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgGreaterThanOrEqualTo(String value) {
+            addCriterion("headImg >=", value, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgLessThan(String value) {
+            addCriterion("headImg <", value, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgLessThanOrEqualTo(String value) {
+            addCriterion("headImg <=", value, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgLike(String value) {
+            addCriterion("headImg like", value, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgNotLike(String value) {
+            addCriterion("headImg not like", value, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgIn(List<String> values) {
+            addCriterion("headImg in", values, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgNotIn(List<String> values) {
+            addCriterion("headImg not in", values, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgBetween(String value1, String value2) {
+            addCriterion("headImg between", value1, value2, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadimgNotBetween(String value1, String value2) {
+            addCriterion("headImg not between", value1, value2, "headimg");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileIsNull() {
+            addCriterion("MD5file is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileIsNotNull() {
+            addCriterion("MD5file is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileEqualTo(String value) {
+            addCriterion("MD5file =", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileNotEqualTo(String value) {
+            addCriterion("MD5file <>", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileGreaterThan(String value) {
+            addCriterion("MD5file >", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileGreaterThanOrEqualTo(String value) {
+            addCriterion("MD5file >=", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileLessThan(String value) {
+            addCriterion("MD5file <", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileLessThanOrEqualTo(String value) {
+            addCriterion("MD5file <=", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileLike(String value) {
+            addCriterion("MD5file like", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileNotLike(String value) {
+            addCriterion("MD5file not like", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileIn(List<String> values) {
+            addCriterion("MD5file in", values, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileNotIn(List<String> values) {
+            addCriterion("MD5file not in", values, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileBetween(String value1, String value2) {
+            addCriterion("MD5file between", value1, value2, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileNotBetween(String value1, String value2) {
+            addCriterion("MD5file not between", value1, value2, "md5file");
             return (Criteria) this;
         }
     }

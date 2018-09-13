@@ -4,7 +4,9 @@ import com.QST.Using.Etitys.SongComment;
 import com.QST.Using.Etitys.SongCommentExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository("songCommentMapper")
 public interface SongCommentMapper {
     int countByExample(SongCommentExample example);
 

@@ -9,11 +9,14 @@ public class Singer {
 
     private String pic;
 
-    public Singer(Integer id, String name, String introduction, String pic) {
+    private String md5file;
+
+    public Singer(Integer id, String name, String introduction, String pic, String md5file) {
         this.id = id;
         this.name = name;
         this.introduction = introduction;
         this.pic = pic;
+        this.md5file = md5file;
     }
 
     public Singer() {
@@ -50,5 +53,13 @@ public class Singer {
 
     public void setPic(String pic) {
         this.pic = pic == null ? null : pic.trim();
+    }
+
+    public String getMd5file() {
+        return md5file;
+    }
+
+    public void setMd5file(String md5file) {
+        this.md5file = md5file == null ? null : md5file.trim();
     }
 }

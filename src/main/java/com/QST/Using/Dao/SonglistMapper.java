@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-@Repository("songlistMapper")
+@Repository(value = "songlistMapper")
 public interface SonglistMapper {
     int countByExample(SonglistExample example);
 

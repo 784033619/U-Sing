@@ -17,7 +17,11 @@ public class User {
 
     private Date birthday;
 
-    public User(Integer id, String username, String password, String nickname, String introduction, Integer sex, Date birthday) {
+    private String headimg;
+
+    private String md5file;
+
+    public User(Integer id, String username, String password, String nickname, String introduction, Integer sex, Date birthday, String headimg, String md5file) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -25,6 +29,8 @@ public class User {
         this.introduction = introduction;
         this.sex = sex;
         this.birthday = birthday;
+        this.headimg = headimg;
+        this.md5file = md5file;
     }
 
     public User() {
@@ -85,5 +91,21 @@ public class User {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public String getHeadimg() {
+        return headimg;
+    }
+
+    public void setHeadimg(String headimg) {
+        this.headimg = headimg == null ? null : headimg.trim();
+    }
+
+    public String getMd5file() {
+        return md5file;
+    }
+
+    public void setMd5file(String md5file) {
+        this.md5file = md5file == null ? null : md5file.trim();
     }
 }

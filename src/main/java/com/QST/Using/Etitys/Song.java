@@ -15,7 +15,9 @@ public class Song {
 
     private Integer playTimes;
 
-    public Song(Integer id, String title, Integer length, String pic, String lrc, Integer albumId, Integer playTimes) {
+    private String md5file;
+
+    public Song(Integer id, String title, Integer length, String pic, String lrc, Integer albumId, Integer playTimes, String md5file) {
         this.id = id;
         this.title = title;
         this.length = length;
@@ -23,6 +25,7 @@ public class Song {
         this.lrc = lrc;
         this.albumId = albumId;
         this.playTimes = playTimes;
+        this.md5file = md5file;
     }
 
     public Song() {
@@ -83,5 +86,13 @@ public class Song {
 
     public void setPlayTimes(Integer playTimes) {
         this.playTimes = playTimes;
+    }
+
+    public String getMd5file() {
+        return md5file;
+    }
+
+    public void setMd5file(String md5file) {
+        this.md5file = md5file == null ? null : md5file.trim();
     }
 }

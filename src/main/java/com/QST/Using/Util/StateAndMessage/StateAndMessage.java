@@ -19,4 +19,6 @@ public class StateAndMessage {
     public static final String LOGINFUSERNAME = "用户名不正确";
     public static final String LOGINFPASSWORD = "密码不正确";
 
+    public final static String UPLOADSUCCESS = "上传成功";
+    public final static String UPLOADFAIL = "上传失败";
 }

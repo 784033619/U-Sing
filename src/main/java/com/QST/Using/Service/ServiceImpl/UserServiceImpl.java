@@ -13,6 +13,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Resource(name = "userMapper")
     private UserMapper userMapper;
+    @Resource(name = "userExample")
+    private UserExample userExample;
     @Override
     public int savaUser(User user) {
         return  userMapper.insert(user);
@@ -33,5 +35,25 @@ public class UserServiceImpl implements UserService {
         criteria.andUsernameEqualTo(user.getUsername());
         List<User> list = userMapper.selectByExample(userExample);
         return list;
+    }
+
+    @Override
+    public User getPersonalInfo(Integer id) {
+        return userMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int updatePersonal(User user) {
+        int rows = userMapper.updateByPrimaryKeySelective(user);
+        return rows;
+    }
+
+    @Override
+    public int updateUserHead(String username, String headPath) {
+        userExample.clear();
+        userExample.createCriteria().andUsernameEqualTo(username);
+        User user = new User();
+        user.setHeadimg(headPath);
+        return userMapper.updateByExampleSelective(user, userExample);
     }
 }
