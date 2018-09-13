@@ -19,10 +19,17 @@ package com.QST.Using.Controller;
 public class SongCommentController {
     @Resource(name = "songCommentService")
     private SongCommentService commentService;
-    @RequestMapping(value = "getComments")
-    public Result getSingRankList(){
-        List<SongComment> songComments = commentService.getSongComments();
-        System.out.println(songComments.size());
+    @RequestMapping(value = "getCommentsByPraiseTime")
+    public Result getCommentsByPraiseTime(){
+        List<SongComment> songComments = commentService.getSongCommentsByPraiseTime();
+        if(songComments.isEmpty()){
+            return new Result(StateAndMessage.FAIL,null,null);
+        }
+        return new Result(StateAndMessage.SUCCESS,null,songComments);
+    }
+    @RequestMapping(value = "getCommentsByCreateTime")
+    public Result getCommentsByCreateTime(){
+        List<SongComment> songComments = commentService.getSongCommentsByCreateTime();
         if(songComments.isEmpty()){
             return new Result(StateAndMessage.FAIL,null,null);
         }
