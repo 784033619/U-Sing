@@ -15,9 +15,11 @@ import java.util.List;
 public class SongServiceImpl implements SongService {
     @Resource(name = "songMapper")
     private SongMapper songMapper;
+    @Resource(name = "songExample")
+    private SongExample songExample;
     @Override
     public List<Song> getSongRankList() {
-        SongExample songExample = new SongExample();
+        songExample.clear();
         songExample.setOrderByClause("play_times desc");
         PageHelper.startPage(1,7);
         List<Song> songs = songMapper.selectByExample(songExample);

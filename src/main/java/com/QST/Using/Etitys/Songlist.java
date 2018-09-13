@@ -19,7 +19,9 @@ public class Songlist {
 
     private Date updateTime;
 
-    public Songlist(Integer id, String tags, String introduction, Integer playTimes, String title, String pic, Date createTime, Date updateTime) {
+    private String md5file;
+
+    public Songlist(Integer id, String tags, String introduction, Integer playTimes, String title, String pic, Date createTime, Date updateTime, String md5file) {
         this.id = id;
         this.tags = tags;
         this.introduction = introduction;
@@ -28,6 +30,7 @@ public class Songlist {
         this.pic = pic;
         this.createTime = createTime;
         this.updateTime = updateTime;
+        this.md5file = md5file;
     }
 
     public Songlist() {
@@ -96,5 +99,13 @@ public class Songlist {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getMd5file() {
+        return md5file;
+    }
+
+    public void setMd5file(String md5file) {
+        this.md5file = md5file == null ? null : md5file.trim();
     }
 }

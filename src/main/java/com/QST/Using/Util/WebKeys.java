@@ -2,6 +2,7 @@ package com.QST.Using.Util;
 
 public class WebKeys {
     public final static String username = "username";
+    public final static String verifiCode = "verifiCode";
     public final static String password = "password";
     public final static String password2 = "password2";
     public final static String isAdmin = "isAdmin";

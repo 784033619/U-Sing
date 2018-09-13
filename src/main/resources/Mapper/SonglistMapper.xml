@@ -11,6 +11,7 @@
       <arg column="pic" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="MD5file" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -72,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, tags, introduction, play_times, title, pic, create_time, update_time
+    id, tags, introduction, play_times, title, pic, create_time, update_time, MD5file
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.QST.Using.Etitys.SonglistExample" >
     select
@@ -107,10 +108,12 @@
   <insert id="insert" parameterType="com.QST.Using.Etitys.Songlist" >
     insert into tb_songlist (id, tags, introduction, 
       play_times, title, pic, 
-      create_time, update_time)
+      create_time, update_time, MD5file
+      )
     values (#{id,jdbcType=INTEGER}, #{tags,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR}, 
       #{playTimes,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{md5file,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.QST.Using.Etitys.Songlist" >
     insert into tb_songlist
@@ -139,6 +142,9 @@
       <if test="updateTime != null" >
         update_time,
       </if>
+      <if test="md5file != null" >
+        MD5file,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -164,6 +170,9 @@
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="md5file != null" >
+        #{md5file,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -200,6 +209,9 @@
       <if test="record.updateTime != null" >
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.md5file != null" >
+        MD5file = #{record.md5file,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -214,7 +226,8 @@
       title = #{record.title,jdbcType=VARCHAR},
       pic = #{record.pic,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      MD5file = #{record.md5file,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -243,6 +256,9 @@
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="md5file != null" >
+        MD5file = #{md5file,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -254,7 +270,8 @@
       title = #{title,jdbcType=VARCHAR},
       pic = #{pic,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      MD5file = #{md5file,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

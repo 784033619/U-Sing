@@ -59,7 +59,7 @@ public class UserController {
                 return new Result(StateAndMessage.FAIL,StateAndMessage.VERIFICODEMESSAGE,null);
             }
             System.out.println(param);
-            session.setAttribute("verifiCode",param);
+            session.setAttribute(WebKeys.verifiCode,param);
             System.out.println(session);
         }
         return new Result(StateAndMessage.SUCCESS,null,null);
@@ -84,7 +84,7 @@ public class UserController {
         if(user!=null){
 //            校验验证码
             System.out.println(session);
-            System.out.println(session.getAttribute("verifiCode"));
+            System.out.println(session.getAttribute(WebKeys.verifiCode));
 //            if(code.equals(session.getAttribute("verifiCode"))){
                int result = userService.savaUser(user);
 //               if(result == 0){
@@ -126,7 +126,7 @@ public class UserController {
             if(user.getPassword().equals(user1.getPassword())){
                 result.setState(StateAndMessage.SUCCESS);
                 result.setMessage(StateAndMessage.LOGINSMESSAGE);
-                session.setAttribute("user",user);
+                session.setAttribute(WebKeys.username,user1);
             }else{
                 result.setMessage(StateAndMessage.LOGINFUSERNAME);
                 result.setState(StateAndMessage.FAIL);
@@ -140,11 +140,12 @@ public class UserController {
 
     /**
      * 获取个人信息
-     * @param user
+     * @param session
      * @return
      */
     @RequestMapping("getPersonalInfo")
-    public Result getPersonalInfo(@RequestBody User user){
+    public Result getPersonalInfo(HttpSession session){
+        User user = (User) session.getAttribute("user");
         User userInfo = userService.getPersonalInfo(user.getId());
         if(userInfo==null){
             return new Result(StateAndMessage.FAIL,null,null);
@@ -157,7 +158,7 @@ public class UserController {
      * @param user
      * @return
      */
-    public Result updatePersonalInfo(@RequestBody User user){
+    public Result updatePersonalInfo(User user){
         int rows = userService.updatePersonal(user);
         if(rows<=0){
             return new Result(StateAndMessage.FAIL,null,null);
@@ -167,36 +168,52 @@ public class UserController {
 
     /**
      * 用户头像上传
-     * @param request
+     * @param session
      * @param file
      * @return
      * @throws IOException
      */
-    public Result uploadHeadPortrait(HttpServletRequest request, @RequestParam("file")MultipartFile file) throws IOException {
-        logger.info(request.getSession().getId()+(String) request.getSession().getAttribute(WebKeys.username));
-        Object username = request.getSession().getAttribute(WebKeys.username);
-        if (username == null)
+    @RequestMapping("uploadHeadPortrait")
+    public Result uploadHeadPortrait(HttpSession session, @RequestParam("file")MultipartFile file) throws IOException {
+        logger.info(session.getId()+ (String) session.getAttribute(WebKeys.username));
+        User user = (User) session.getAttribute(WebKeys.username);
+        if (user == null)
             return new Result();
         String fileMd5 = DigestUtils.md5DigestAsHex(file.getBytes());
-        String filename = (String) username + new Date().toString() + fileMd5;
+        String filename = user.getUsername() + new Date().toString() + fileMd5;
 
         //文件已存在
         if(userFileService.checkExist(fileMd5)){
             String oldUrl = userFileService.getFileName(fileMd5);
-            userService.setUserHead((String) username, oldUrl);
+            userService.updateUserHead(user.getUsername(), oldUrl);
             Map<String, Object> data = new HashMap<String, Object>();
             data.put("url", oldUrl);
             return new Result(StateAndMessage.SUCCESS,StateAndMessage.UPLOADSUCCESS,data);
         }
         String path = "";
-        userFileService.addUserFile((String) username, filename, fileMd5);
+        userFileService.addUserFile(user.getUsername(), filename, fileMd5);
         // 文件名 username + datetime + filename
         File newFile = new File(path);
         logger.info("文件已保存至： "+path);
-        userService.setUserHead((String) username, path);
+        userService.updateUserHead(user.getUsername(), path);
         file.transferTo(newFile);
         Map<String, Object> data = new HashMap<>();
         data.put("url", filename);
         return new Result(StateAndMessage.SUCCESS,null,data);
+    }
+
+    /**
+     * 用户注销
+     * @param session
+     * @return
+     */
+    @RequestMapping("/user/quit")
+    @ResponseBody
+    public Object quit(HttpSession session){
+        Object username = session.getAttribute(WebKeys.username);
+        if(username == null)
+            return new Result(StateAndMessage.FAIL,null,null);
+        session.invalidate();
+        return new Result(StateAndMessage.SUCCESS, null, null);
     }
 }

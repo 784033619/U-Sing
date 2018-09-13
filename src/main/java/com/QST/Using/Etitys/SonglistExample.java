@@ -624,6 +624,76 @@ public class SonglistExample {
             addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
+
+        public Criteria andMd5fileIsNull() {
+            addCriterion("MD5file is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileIsNotNull() {
+            addCriterion("MD5file is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileEqualTo(String value) {
+            addCriterion("MD5file =", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileNotEqualTo(String value) {
+            addCriterion("MD5file <>", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileGreaterThan(String value) {
+            addCriterion("MD5file >", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileGreaterThanOrEqualTo(String value) {
+            addCriterion("MD5file >=", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileLessThan(String value) {
+            addCriterion("MD5file <", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileLessThanOrEqualTo(String value) {
+            addCriterion("MD5file <=", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileLike(String value) {
+            addCriterion("MD5file like", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileNotLike(String value) {
+            addCriterion("MD5file not like", value, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileIn(List<String> values) {
+            addCriterion("MD5file in", values, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileNotIn(List<String> values) {
+            addCriterion("MD5file not in", values, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileBetween(String value1, String value2) {
+            addCriterion("MD5file between", value1, value2, "md5file");
+            return (Criteria) this;
+        }
+
+        public Criteria andMd5fileNotBetween(String value1, String value2) {
+            addCriterion("MD5file not between", value1, value2, "md5file");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

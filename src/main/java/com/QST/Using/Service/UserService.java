@@ -16,5 +16,5 @@ public interface UserService {
 
     int updatePersonal(User user);
 
-    void setUserHead(String username, String oldUrl);
+    int updateUserHead(String username, String oldUrl);
 }
