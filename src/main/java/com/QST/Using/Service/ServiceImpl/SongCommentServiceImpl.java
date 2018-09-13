@@ -15,6 +15,8 @@ import java.util.List;
 public class SongCommentServiceImpl implements SongCommentService{
     @Resource(name = "songCommentMapper")
     private SongCommentMapper songCommentMapper;
+    @Resource(name = "songCommentExample")
+    private SongCommentExample songCommentExample;
     @Override
     public List<SongComment> getSongCommentsByPraiseTime() {
         SongCommentExample songComentExample = new SongCommentExample();
@@ -26,10 +28,9 @@ public class SongCommentServiceImpl implements SongCommentService{
 
     @Override
     public List<SongComment> getSongCommentsByCreateTime() {
-        SongCommentExample songComentExample = new SongCommentExample();
-        songComentExample.setOrderByClause("create_time desc");
+        songCommentExample.setOrderByClause("create_time desc");
         PageHelper.startPage(1,5);
-        List<SongComment> songComments = songCommentMapper.selectByExample(songComentExample);
+        List<SongComment> songComments = songCommentMapper.selectByExample(songCommentExample);
         return songComments;
     }
 }
