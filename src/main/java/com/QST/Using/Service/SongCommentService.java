@@ -5,5 +5,6 @@ import com.QST.Using.Etitys.SongComment;
 import java.util.List;
 
 public interface SongCommentService {
-    List<SongComment> getSongComments();
+    List<SongComment> getSongCommentsByPraiseTime();
+    List<SongComment> getSongCommentsByCreateTime();
 }

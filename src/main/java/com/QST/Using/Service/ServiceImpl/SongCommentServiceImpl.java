@@ -16,10 +16,19 @@ public class SongCommentServiceImpl implements SongCommentService{
     @Resource(name = "songCommentMapper")
     private SongCommentMapper songCommentMapper;
     @Override
-    public List<SongComment> getSongComments() {
+    public List<SongComment> getSongCommentsByPraiseTime() {
         SongCommentExample songComentExample = new SongCommentExample();
         songComentExample.setOrderByClause("praise_times desc");
-        PageHelper.startPage(1,7);
+        PageHelper.startPage(1,4);
+        List<SongComment> songComments = songCommentMapper.selectByExample(songComentExample);
+        return songComments;
+    }
+
+    @Override
+    public List<SongComment> getSongCommentsByCreateTime() {
+        SongCommentExample songComentExample = new SongCommentExample();
+        songComentExample.setOrderByClause("create_time desc");
+        PageHelper.startPage(1,5);
         List<SongComment> songComments = songCommentMapper.selectByExample(songComentExample);
         return songComments;
     }
