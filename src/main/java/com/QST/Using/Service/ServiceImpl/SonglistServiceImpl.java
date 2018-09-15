@@ -44,4 +44,15 @@ public class SonglistServiceImpl implements SonglistService {
         PageInfo<Songlist> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }
+
+    /**
+     * 通过id找到歌单
+     * @param id
+     * @return
+     */
+    @Override
+    public Songlist getSonglistById(Integer id) {
+        Songlist songlist=songlistMapper.selectByPrimaryKey(id);
+        return songlist;
+    }
 }

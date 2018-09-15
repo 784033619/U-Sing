@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -51,6 +52,20 @@ public class SonglistController {
         }else{
             result.setState(StateAndMessage.SUCCESS);
             result.setData(list);
+        }
+        return result;
+    }
+    @RequestMapping("getSonglistById")
+        public Result getSonglistById(@RequestParam Integer id){
+        System.out.println(id);
+        Songlist songlist = songlistService.getSonglistById(id);
+        System.out.println(songlist);
+        Result result = new Result();
+        if(null==songlist){
+            result.setState(StateAndMessage.FAIL);
+        }else{
+            result.setState(StateAndMessage.SUCCESS);
+            result.setData(songlist);
         }
         return result;
     }
