@@ -12,7 +12,7 @@ public interface UserService {
 
     public List<User> login(User user);
 
-    User getPersonalInfo(Integer id);
+    User getPersonalInfo(Long id);
 
     int updatePersonal(User user);
 

@@ -1,9 +1,20 @@
 package com.QST.Using.Etitys;
 
-import java.util.Date;
+import zuo.biao.apijson.MethodAccess;
+import zuo.biao.apijson.server.Visitor;
 
-public class User {
-    private Integer id;
+import java.util.Date;
+import java.util.List;
+
+import static zuo.biao.apijson.RequestRole.ADMIN;
+import static zuo.biao.apijson.RequestRole.UNKNOWN;
+
+@MethodAccess(
+        POST = {UNKNOWN, ADMIN},
+        DELETE = {ADMIN}
+)
+public class User extends BaseModel implements Visitor {
+    private Long id;
 
     private String username;
 
@@ -20,8 +31,9 @@ public class User {
     private String headimg;
 
     private String md5file;
+    private List<Long> contactIdList; //朋友列表
 
-    public User(Integer id, String username, String password, String nickname, String introduction, Integer sex, Date birthday, String headimg, String md5file) {
+    public User(Long id, String username, String password, String nickname, String introduction, Integer sex, Date birthday, String headimg, String md5file) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -33,79 +45,108 @@ public class User {
         this.md5file = md5file;
     }
 
+    public User(Long id) {
+        this.id = id;
+    }
+
     public User() {
         super();
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    @Override
+    public List<Long> getContactIdList() {
+        return contactIdList;
+    }
+    public User setContactIdList(List<Long> contactIdList) {
+        this.contactIdList = contactIdList;
+        return this;
+    }
+
+
+    public User setId(Long id) {
         this.id = id;
+        return this;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public User setUsername(String username) {
         this.username = username == null ? null : username.trim();
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password == null ? null : password.trim();
+        return this;
     }
 
     public String getNickname() {
         return nickname;
     }
 
-    public void setNickname(String nickname) {
+    public User setNickname(String nickname) {
         this.nickname = nickname == null ? null : nickname.trim();
+        return this;
+
     }
 
     public String getIntroduction() {
         return introduction;
     }
 
-    public void setIntroduction(String introduction) {
+    public User setIntroduction(String introduction) {
         this.introduction = introduction == null ? null : introduction.trim();
+        return this;
+
     }
 
     public Integer getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex) {
+    public User setSex(Integer sex) {
         this.sex = sex;
+        return this;
+
     }
 
     public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public User setBirthday(Date birthday) {
         this.birthday = birthday;
+        return this;
+
     }
 
     public String getHeadimg() {
         return headimg;
     }
 
-    public void setHeadimg(String headimg) {
+    public User setHeadimg(String headimg) {
         this.headimg = headimg == null ? null : headimg.trim();
+        return this;
+
     }
 
     public String getMd5file() {
         return md5file;
     }
 
-    public void setMd5file(String md5file) {
+    public User setMd5file(String md5file) {
         this.md5file = md5file == null ? null : md5file.trim();
+        return this;
+
     }
 }
