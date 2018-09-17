@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!-- 参数： ??useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false -->
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://119.23.28.6:3306/using" userId="root"
+			password="12345679">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 制定javabean生成位置 -->
+		<javaModelGenerator targetPackage="com.example.using.entity"
+							targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- sql映射文件生成位置 -->
+		<sqlMapGenerator targetPackage="mapper"
+						 targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- dao借口的生成位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+							 targetPackage="com.example.using.dao"
+							 targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+
+		<table tableName="tb_album" domainObjectName="Album"/>
+		<table tableName="tb_album_comment" domainObjectName="AlbumComment"/>
+		<table tableName="tb_follow" domainObjectName="Follow"/>
+		<table tableName="tb_play_record" domainObjectName="PlayRecord"/>
+		<table tableName="tb_singer" domainObjectName="Singer"/>
+		<table tableName="tb_singer_collection" domainObjectName="SingerCollection"/>
+		<table tableName="tb_song" domainObjectName="Song"/>
+		<table tableName="tb_song_comment" domainObjectName="SongComment"/>
+		<table tableName="tb_list_collection" domainObjectName="ListCollection"/>
+		<table tableName="tb_songlist" domainObjectName="Songlist"/>
+		<table tableName="tb_songlist_comment" domainObjectName="SonglistComment"/>
+		<table tableName="tb_songlist_song" domainObjectName="SonglistSong"/>
+		<!--<table tableName="tb_user" domainObjectName="User"/>-->
+		<table tableName="tb_user_setting" domainObjectName="UserSetting"/>
+
+
+
+
+	</context>
+</generatorConfiguration>
