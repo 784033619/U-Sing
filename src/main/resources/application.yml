@@ -7,7 +7,7 @@ spring:
     password: 12345679
 
 server:
-  port: 8080
+  port: 8082
   address: 0.0.0.0
   servlet:
     context-path: /
